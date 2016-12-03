@@ -1,4 +1,6 @@
-dir-loader
+# entry-loader
+
+Based on https://github.com/sleexyz/dir-loader
 ========================
 
 [![Build Status](https://travis-ci.org/sleep/dir-loader.svg)](https://travis-ci.org/sleep/dir-loader)
@@ -96,6 +98,22 @@ var blog = {
       "mtime": "2015-09-12T19:45:51.000Z"
     }
   }
+};
+...
+```
+
+Or, with onlyEntry flag enabled:
+```js
+// (equivalent to ./entry.js)
+
+var blog = {
+  "food": require("./website/food/post1.md"),
+  "intro.md": {
+    "src": require("./website/intro.md"),
+    "size": 24,
+    "mtime": "2015-09-13T03:50:56.000Z"
+  },
+  "travel": require("./website/travel/post1.md")
 };
 ...
 ```
