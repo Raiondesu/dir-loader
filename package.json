@@ -1,5 +1,5 @@
 {
-  "name": "dir-loader",
+  "name": "entry-loader",
   "version": "0.3.0",
   "description": "Load directories dynamically in Webpack",
   "main": "index.js",
@@ -20,21 +20,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sleep/dir-loader.git"
+    "url": "https://github.com/Raiondesu/entry-loader.git"
   },
   "keywords": [
     "webpack",
     "directory",
     "dir",
+    "entry",
     "require.context",
     "loader",
     "dynamic",
     "cms"
   ],
-  "author": "Sean Lee @sleep",
+  "author": "Sean Lee @sleep & Alexey @Raiondesu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sleep/dir-loader/issues"
+    "url": "https://github.com/Raiondesu/entry-loader/issues"
   },
-  "homepage": "https://github.com/sleep/dir-loader"
+  "homepage": "https://github.com/Raiondesu/entry-loader/"
 }

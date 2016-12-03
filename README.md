@@ -69,44 +69,6 @@ This is equivalent to the following javascript:
 // (equivalent to ./entry.js)
 
 var blog = {
-  "food": {
-    "post1.md": {
-      "src": require("./website/food/post1.md"),
-      "size": 22,
-      "mtime": "2015-09-12T19:44:43.000Z"
-    }
-  },
-  "intro.md": {
-    "src": require("./website/intro.md"),
-    "size": 24,
-    "mtime": "2015-09-13T03:50:56.000Z"
-  },
-  "travel": {
-    "post1.md": {
-      "src": require("./website/travel/post1.md"),
-      "size": 23,
-      "mtime": "2015-09-12T19:45:24.000Z"
-    },
-    "post2.md": {
-      "src": require("./website/travel/post2.md"),
-      "size": 24,
-      "mtime": "2015-09-12T19:45:43.000Z"
-    },
-    "post3.md": {
-      "src": require("./website/travel/post3.md"),
-      "size": 23,
-      "mtime": "2015-09-12T19:45:51.000Z"
-    }
-  }
-};
-...
-```
-
-Or, with onlyEntry flag enabled:
-```js
-// (equivalent to ./entry.js)
-
-var blog = {
   "food": require("./website/food/post1.md"),
   "intro.md": require("./website/intro.md"),
   "travel": require("./website/travel/post1.md")
@@ -137,7 +99,7 @@ module.exports = {
   
   // filter :: RegExp
   // (optional)
-  // Regular expression to test filenames.
+  // Regular expression to test entry filenames.
   filter: /\.md$/,
   
   // dirFilter :: RegExp
@@ -148,19 +110,7 @@ module.exports = {
   // pathTransform :: (String) -> String
   // (optional)
   // Function to transform each generated require statement.
-  pathTransform: (_) => "bundle!" + _,
-  
-  // onlyEntry :: Boolean
-  // (optional)
-  // A flag to control whether to reduce an output object to only one entry point.
-  // Default - false
-  onlyEntry: true,
-
-  // entryName :: RegExp
-  // (optional)
-  // A Regular expression to test an enty point of a directory.
-  // Defaults to filter (see above).
-  entryName: /index\.js/
+  pathTransform: (_) => "bundle!" + _
   
 }
 ```
