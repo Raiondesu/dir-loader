@@ -108,11 +108,7 @@ Or, with onlyEntry flag enabled:
 
 var blog = {
   "food": require("./website/food/post1.md"),
-  "intro.md": {
-    "src": require("./website/intro.md"),
-    "size": 24,
-    "mtime": "2015-09-13T03:50:56.000Z"
-  },
+  "intro.md": require("./website/intro.md"),
   "travel": require("./website/travel/post1.md")
 };
 ...
@@ -163,6 +159,7 @@ module.exports = {
   // entryName :: RegExp
   // (optional)
   // A Regular expression to test an enty point of a directory.
+  // Defaults to filter (see above).
   entryName: /index\.js/
   
 }
