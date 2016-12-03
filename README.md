@@ -134,7 +134,18 @@ module.exports = {
   // pathTransform :: (String) -> String
   // (optional)
   // Function to transform each generated require statement.
-  pathTransform: (_) => "bundle!" + _
+  pathTransform: (_) => "bundle!" + _,
+  
+  // onlyEntry :: Boolean
+  // (optional)
+  // A flag to control whether to reduce an output object to only one entry point.
+  // Default - false
+  onlyEntry: true,
+
+  // entryName :: RegExp
+  // (optional)
+  // A Regular expression to test an enty point of a directory.
+  entryName: /index\.js/
   
 }
 ```
