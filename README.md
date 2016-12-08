@@ -27,32 +27,28 @@ npm install --save-dev dir-loader
 Suppose you have a webpack project with a semantic directory structure. You want to require your content but still preserve the hierarchical information inherent to the filesystem.
 ```
 .
-├── website
-│   ├── intro.md
+├── modules
+│   ├── accounts
+│   │   ├── main.js
 |   |
-│   ├── travel
-│   │   ├── post1.md
-│   │   ├── post2.md
-│   │   └── post3.md
-|   |
-│   ├── food
-│   │   └── post1.md
+│   ├── cart
+│   │   └── main.js
 |   |
 │   └──ignore-me.js
 |
 |
 |
-├── blog.config.js
+├── modules.config.js
 └── entry.js
 ```
 
 In a js file, specify the configuration for dir-loader:
 ```js
-// ./blog.config.js
+// ./modules.config.js
 
 module.exports = {
-  path: "./website",
-  filter: /\.md$/
+  path: "./modules",
+  filter: /main\.js$/
 }
 ```
 
@@ -68,10 +64,9 @@ This is equivalent to the following javascript:
 ```js
 // (equivalent to ./entry.js)
 
-var blog = {
-  "food": require("./website/food/post1.md"),
-  "intro.md": require("./website/intro.md"),
-  "travel": require("./website/travel/post1.md")
+var modules = {
+  "accounts": require("./modules/accounts/main.js"),
+  "cart": require("./modules/cart/main.js")
 };
 ...
 ```
@@ -84,23 +79,23 @@ var blog = {
 ## api
 ```js
 // ./entry.js
-var blog = require("dir!./blog.config.js");
+var modules = require("dir!./modules.config.js");
 ...
 ```
 
 ```js
-// ./blog.config.js
+// ./modules.config.js
 
 module.exports = {
 
   // path :: String
   // Path to directory. Can be absolute or relative path.
-  path: "./website",
+  path: "./modules",
   
   // filter :: RegExp
   // (optional)
   // Regular expression to test entry filenames.
-  filter: /\.md$/,
+  filter: /main\.js$/,
   
   // dirFilter :: RegExp
   // (optional)
